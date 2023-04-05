@@ -44,7 +44,7 @@ You can delete TODO items by clicking on the delete button next to each item.<br
 </p>
 
 <p align="center">
-  <img alt="pic4" src="./screens/pic41.png" >
+  <img alt="pic4" src="./screens/pic4.png" >
 </p>
 
 
