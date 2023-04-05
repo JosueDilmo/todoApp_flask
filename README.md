@@ -18,7 +18,7 @@ You will need to create a database on MongoDB Atlas and obtain a connection stri
 Update the client variable in app.py with your connection string.<br>
 
 python<br>
-``client = MongoClient('mongodb+srv://<username>:<password>@cluster0.kjtwkrj.mongodb.net/<database>?retryWrites=true&w=majority')`
+`client = MongoClient('mongodb+srv://<username>:<password>@cluster0.kjtwkrj.mongodb.net/<database>?retryWrites=true&w=majority')`
 
 # Usage
 To run the application, execute the following command in the terminal:
