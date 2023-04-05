@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        {# bootstrap #}
+    <style>
+        body {
+            background-color: #E4E4D8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .todo-form {
+            margin: 0 auto;
+            width: 50%;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        }
+
+        .todo-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="todo-form" method="post">
+                <h1>FlaskToDo</h1>
+                <hr>
+                <div class="content">
+                    <div class="form-group">
+                        <label for="content"><b>Todo content:</b></label>
+                        <label>
+                            <input type="text" name="content" class="form-control"
+                                   placeholder="Todo Content">
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="degree"><b>Degree:</b></label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="degree" id="degree-0"
+                                       value="Important" required>
+                                <label class="form-check-label" for="degree-0">
+                                    Important
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="degree" id="degree-1"
+                                       value="Unimportant" required>
+                                <label class="form-check-label" for="degree-1">
+                                    Unimportant
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            <hr>
+            {% for todo in todos %}
+                <div class="todo">
+                    <p>{{ todo['content'] }} <i>({{ todo['degree']}})</i></p>
+                    <form method="POST" action="{{ url_for('delete', id=todo['_id']) }}" >
+                        <input class="btn btn-secondary" type="submit" value="Delete"
+                               onclick="return confirm('Are you sure you want to delete this entry?')">
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
