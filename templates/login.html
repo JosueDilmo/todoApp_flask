@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - FlaskToDo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {# Bootstrap #}
+    <style>
+        body {
+            background-color: #E4E4D8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            margin: 0 auto;
+            width: 50%;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        }
+
+        .login-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="login-form" method="POST">
+                <h1>Login</h1>
+                <hr>
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <div class="content">
+                    <div class="form-group">
+                        <label for="username"><b>Username:</b></label>
+                        <label>
+                            <input type="text" name="username" class="form-control"
+                                   placeholder="Username" required>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><b>Password:</b></label>
+                        <label>
+                            <input type="password" name="password" class="form-control"
+                                   placeholder="Password" required>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button><br><br>
+                    <span><b>Don't have account?</span><br></b>
+                    <a href="{{ url_for('register') }}">
+                    Register now!</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
